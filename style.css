@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: #24292e;
+    background-color: rgb(36, 41, 46);
     padding-top: 50px;
 }
 
@@ -36,4 +36,7 @@ body {
     border: 2px solid black;
     border-radius: 7px;
     font-weight: bolder;
+}
+#link {
+    margin-bottom: 50px;
 }
