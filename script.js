@@ -5,8 +5,8 @@ canvas.width = 500;
 canvas.height = 500;
 
 const BOARD_LENGTH = 3;
-const WIDTH = 500;
-const HEIGHT = 500;
+let WIDTH = canvas.width;
+let HEIGHT = canvas.height;
 const AI = "X";
 const HUMAN = "O";
 
@@ -15,8 +15,8 @@ let emptySpace;
 
 let resetGame = () => {
     board = [
-        ["", "", ""],
-        ["", "", ""],
+        ["X", "0", ""],
+        ["0", "X", ""],
         ["", "", ""],
     ];
     emptySpace = 9;
@@ -26,12 +26,12 @@ let resetGame = () => {
 };
 
 class DrawText {
-    constructor(text, y, x) {
-        let fillText = (text, x, y) => {
-            ctx.font = "155px Comic Sans MS";
+    constructor(text, y, x, fontSize = 155) {
+        let fillText = (text, x, y, fontSize) => {
+            ctx.font = `155px Comic Sans MS`;
             ctx.textBaseline = "middle";
             ctx.textAlign = "center";
-            ctx.fillText(text, x, y + 15);
+            ctx.fillText(text, x, y + 15, fontSize);
         };
 
         fillText(
@@ -169,3 +169,23 @@ canvas.addEventListener("click", () => {
 });
 
 window.onload = resetGame();
+
+window.onresize = () => {
+    let w = Math.min(500, window.innerWidth - 100);
+    let h = Math.min(500, window.innerHeight - 100);
+    let min = Math.min(w, h);
+    canvas.width = min;
+    canvas.height = min;
+
+    WIDTH = min;
+    HEIGHT = min;
+
+    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    drawBoard();
+
+    for (let i = 0; i < BOARD_LENGTH; i++) {
+        for (let j = 0; j < BOARD_LENGTH; j++) {
+            new DrawText(board[i][j], i, j, 155);
+        }
+    }
+};
