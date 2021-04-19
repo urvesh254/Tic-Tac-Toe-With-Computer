@@ -12,7 +12,7 @@ function computerTurn() {
                 board[i][j] = ai;
                 let score = minimax(board, 0, false);
                 board[i][j] = "";
-                if (score >= bestScore) {
+                if (score > bestScore) {
                     bestScore = score;
                     move = { i, j };
                 }
