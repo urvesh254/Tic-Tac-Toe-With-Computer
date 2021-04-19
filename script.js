@@ -29,7 +29,11 @@ let resetGame = () => {
 class DrawText {
     constructor(text, y, x, fontSize = 155) {
         let fillText = (text, x, y, fontSize) => {
-            ctx.font = `155px Comic Sans MS`;
+            if (WIDTH < 350) {
+                ctx.font = "60px Comic Sans MS";
+            } else {
+                ctx.font = "120px Comic Sans MS";
+            }
             ctx.textBaseline = "middle";
             ctx.textAlign = "center";
             ctx.fillText(text, x, y + 15, fontSize);
@@ -178,6 +182,8 @@ let boardAttrChang = () => {
 
     WIDTH = min;
     HEIGHT = min;
+
+    console.log(min, min);
 
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     drawBoard();
