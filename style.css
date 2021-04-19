@@ -16,13 +16,19 @@ body {
     justify-content: center;
 }
 
+h1 {
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 40px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 #canvas {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
     align-items: center;
 }
 
 #result {
-    color: rgb(255, 255, 255);
+    color: rgb(255, 255, 255, 0.95);
     margin: 20px auto;
     text-align: center;
     font-size: 50px;
@@ -32,14 +38,14 @@ body {
 #reset {
     color: black;
     overflow: hidden;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.95);
     padding: 10px;
     border: 2px solid black;
     border-radius: 7px;
     font-weight: bolder;
 }
 #link {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 500px) {
