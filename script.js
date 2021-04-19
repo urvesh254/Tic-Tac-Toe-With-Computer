@@ -7,7 +7,11 @@ let HEIGHT = canvas.height;
 const AI = "X";
 const HUMAN = "O";
 
-let board;
+let board = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""],
+];
 let emptySpace;
 
 let resetGame = () => {
