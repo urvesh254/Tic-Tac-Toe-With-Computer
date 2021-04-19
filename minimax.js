@@ -1,6 +1,3 @@
-let ai = AI;
-let human = HUMAN;
-
 function computerTurn() {
     // AI to make its turn
     let bestScore = -Infinity;
@@ -9,7 +6,7 @@ function computerTurn() {
         for (let j = 0; j < 3; j++) {
             // Is the spot available?
             if (board[i][j] == "") {
-                board[i][j] = ai;
+                board[i][j] = AI;
                 let score = minimax(board, 0, false);
                 board[i][j] = "";
                 if (score > bestScore) {
@@ -21,7 +18,7 @@ function computerTurn() {
     }
     if (move) {
         board[move.i][move.j] = AI;
-        new DrawImage(SOURCE[AI], move.i, move.j);
+        new DrawText(AI, move.i, move.j);
     }
 }
 
@@ -43,7 +40,7 @@ function minimax(board, depth, isMaximizing) {
             for (let j = 0; j < 3; j++) {
                 // Is the spot available?
                 if (board[i][j] == "") {
-                    board[i][j] = ai;
+                    board[i][j] = AI;
                     let score = minimax(board, depth + 1, false);
                     board[i][j] = "";
                     bestScore = Math.max(score, bestScore);
@@ -57,7 +54,7 @@ function minimax(board, depth, isMaximizing) {
             for (let j = 0; j < 3; j++) {
                 // Is the spot available?
                 if (board[i][j] == "") {
-                    board[i][j] = human;
+                    board[i][j] = HUMAN;
                     let score = minimax(board, depth + 1, true);
                     board[i][j] = "";
                     bestScore = Math.min(score, bestScore);

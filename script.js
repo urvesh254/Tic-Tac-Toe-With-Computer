@@ -9,10 +9,6 @@ const WIDTH = 500;
 const HEIGHT = 500;
 const AI = "X";
 const HUMAN = "O";
-const SOURCE = {
-    X: "assets/X1.png",
-    O: "assets/O1.png",
-};
 
 let board;
 let emptySpace;
@@ -29,22 +25,20 @@ let resetGame = () => {
     drawBoard();
 };
 
-class DrawImage {
-    constructor(src, y, x) {
-        this.image = new Image(WIDTH / 3, WIDTH / 3);
-        this.image.src = src;
-        this.isLoaded = false;
-        this.image.onload = () => {
-            x = x * (WIDTH / 3);
-            y = y * (HEIGHT / 3);
-            ctx.drawImage(this.image, x, y);
-            this.isLoaded = true;
+class DrawText {
+    constructor(text, y, x) {
+        let fillText = (text, x, y) => {
+            ctx.font = "155px Comic Sans MS";
+            ctx.textBaseline = "middle";
+            ctx.textAlign = "center";
+            ctx.fillText(text, x, y + 15);
         };
-        this.id = setInterval(() => {
-            if (this.isLoaded) {
-                clearInterval(this.id);
-            }
-        }, 1000);
+
+        fillText(
+            text,
+            (WIDTH / 3) * x + WIDTH / 6,
+            (WIDTH / 3) * y + WIDTH / 6
+        );
     }
 }
 
@@ -167,7 +161,7 @@ canvas.addEventListener("click", () => {
 
     emptySpace--;
     board[row][col] = HUMAN;
-    new DrawImage(SOURCE[HUMAN], row, col);
+    new DrawText(HUMAN, row, col);
     gameStatus();
 
     computerTurn();
