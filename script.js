@@ -15,8 +15,8 @@ let emptySpace;
 
 let resetGame = () => {
     board = [
-        ["X", "0", ""],
-        ["0", "X", ""],
+        ["", "", ""],
+        ["", "", ""],
         ["", "", ""],
     ];
     emptySpace = 9;
