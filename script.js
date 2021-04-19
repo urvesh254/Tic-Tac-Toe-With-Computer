@@ -128,9 +128,9 @@ let checkWinCondition = (isDrawLine = true) => {
 let gameStatus = () => {
     let result = checkWinCondition();
     if (result == AI) {
-        exitMessage("You Lost!");
+        exitMessage("You Lost! 😢");
     } else if (result == HUMAN) {
-        exitMessage("You Win!");
+        exitMessage("You Win! 🥇");
     } else if (result == "Tie") {
         exitMessage("Tie!!");
     }
@@ -139,7 +139,6 @@ let gameStatus = () => {
 let exitMessage = (msg) => {
     let div = document.getElementById("result");
     div.textContent = msg;
-    console.log(msg);
 };
 
 canvas.addEventListener("click", () => {
