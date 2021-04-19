@@ -174,16 +174,14 @@ canvas.addEventListener("click", () => {
 });
 
 let boardAttrChang = () => {
-    let w = Math.min(500, window.innerWidth - 100);
-    let h = Math.min(500, window.innerHeight - 100);
+    let w = Math.min(420, window.innerWidth - 100);
+    let h = Math.min(420, window.innerHeight - 100);
     let min = Math.min(w, h);
     canvas.width = min;
     canvas.height = min;
 
     WIDTH = min;
     HEIGHT = min;
-
-    console.log(min, min);
 
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     drawBoard();

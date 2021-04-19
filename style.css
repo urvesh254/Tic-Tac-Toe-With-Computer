@@ -45,7 +45,10 @@ h1 {
     font-weight: bolder;
 }
 #link {
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 
 @media only screen and (max-width: 500px) {
