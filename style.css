@@ -5,7 +5,7 @@
 
 body {
     background-color: rgb(36, 41, 46);
-    padding-top: 50px;
+    padding-top: 20px;
 }
 
 #container {
@@ -38,5 +38,5 @@ body {
     font-weight: bolder;
 }
 #link {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
