@@ -1,9 +1,6 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
 
-canvas.width = 500;
-canvas.height = 500;
-
 const BOARD_LENGTH = 3;
 let WIDTH = canvas.width;
 let HEIGHT = canvas.height;
@@ -168,9 +165,7 @@ canvas.addEventListener("click", () => {
     emptySpace--;
 });
 
-window.onload = resetGame();
-
-window.onresize = () => {
+let boardAttrChang = () => {
     let w = Math.min(500, window.innerWidth - 100);
     let h = Math.min(500, window.innerHeight - 100);
     let min = Math.min(w, h);
@@ -189,3 +184,9 @@ window.onresize = () => {
         }
     }
 };
+window.onload = () => {
+    boardAttrChang();
+    resetGame();
+};
+
+window.onresize = () => boardAttrChang();
