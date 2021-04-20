@@ -1,6 +1,6 @@
 function computerTurn() {
     // AI to make its turn
-    let bestScore = -Infinity;
+    let bestScore = { score: -Infinity, depth: Infinity };
     let move = undefined;
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
@@ -9,7 +9,11 @@ function computerTurn() {
                 board[i][j] = AI;
                 let score = minimax(board, 0, false);
                 board[i][j] = "";
-                if (score > bestScore) {
+                if (
+                    score.score > bestScore.score ||
+                    (score.score == bestScore.score &&
+                        score.depth < bestScore.depth)
+                ) {
                     bestScore = score;
                     move = { i, j };
                 }
@@ -31,11 +35,13 @@ let scores = {
 function minimax(board, depth, isMaximizing) {
     let result = checkWinCondition(false);
     if (result !== null) {
-        return scores[result];
+        let r = { score: scores[result], depth };
+        // console.log(r);
+        return r;
     }
 
     if (isMaximizing) {
-        let bestScore = -Infinity;
+        let bestScore = { score: -Infinity, depth: 0 };
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 // Is the spot available?
@@ -43,13 +49,16 @@ function minimax(board, depth, isMaximizing) {
                     board[i][j] = AI;
                     let score = minimax(board, depth + 1, false);
                     board[i][j] = "";
-                    bestScore = Math.max(score, bestScore);
+                    if (score.score > bestScore.score) {
+                        bestScore = score;
+                    }
+                    // bestScore = Math.max(score.score, bestScore);
                 }
             }
         }
         return bestScore;
     } else {
-        let bestScore = Infinity;
+        let bestScore = { score: Infinity, depth: 0 };
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
                 // Is the spot available?
@@ -57,7 +66,10 @@ function minimax(board, depth, isMaximizing) {
                     board[i][j] = HUMAN;
                     let score = minimax(board, depth + 1, true);
                     board[i][j] = "";
-                    bestScore = Math.min(score, bestScore);
+                    // bestScore = Math.min(score.score, bestScore);
+                    if (score.score < bestScore.score) {
+                        bestScore = score;
+                    }
                 }
             }
         }
