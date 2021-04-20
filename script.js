@@ -191,6 +191,7 @@ let boardAttrChang = () => {
             new DrawText(board[i][j], i, j, 155);
         }
     }
+    checkWinCondition();
 };
 window.onload = () => {
     boardAttrChang();

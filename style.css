@@ -55,4 +55,7 @@ h1 {
     #result {
         font-size: 30px;
     }
+    #logo {
+        width: 30px;
+    }
 }
