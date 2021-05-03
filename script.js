@@ -75,15 +75,16 @@ let checkWinCondition = (isDrawLine = true) => {
         if (equals3(board[i][0], board[i][1], board[i][2])) {
             winner = board[i][0];
             isDrawLine
-                ? drawLine(
-                      0,
-                      (HEIGHT / 3) * i + HEIGHT / 6,
-                      WIDTH,
-                      (HEIGHT / 3) * i + HEIGHT / 6,
-                      "red",
-                      10
-                  )
-                : "";
+                ?
+                drawLine(
+                    0,
+                    (HEIGHT / 3) * i + HEIGHT / 6,
+                    WIDTH,
+                    (HEIGHT / 3) * i + HEIGHT / 6,
+                    "red",
+                    10
+                ) :
+                "";
         }
     }
 
@@ -92,15 +93,16 @@ let checkWinCondition = (isDrawLine = true) => {
         if (equals3(board[0][i], board[1][i], board[2][i])) {
             winner = board[0][i];
             isDrawLine
-                ? drawLine(
-                      (WIDTH / 3) * i + WIDTH / 6,
-                      0,
-                      (WIDTH / 3) * i + WIDTH / 6,
-                      HEIGHT,
-                      "red",
-                      10
-                  )
-                : "";
+                ?
+                drawLine(
+                    (WIDTH / 3) * i + WIDTH / 6,
+                    0,
+                    (WIDTH / 3) * i + WIDTH / 6,
+                    HEIGHT,
+                    "red",
+                    10
+                ) :
+                "";
         }
     }
 
@@ -174,15 +176,7 @@ canvas.addEventListener("click", () => {
 });
 
 let boardAttrChang = () => {
-    let w = Math.min(420, window.innerWidth - 100);
-    let h = Math.min(420, window.innerHeight - 100);
-    let min = Math.min(w, h);
-    canvas.width = min;
-    canvas.height = min;
-
-    WIDTH = min;
-    HEIGHT = min;
-
+    setHeight();
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     drawBoard();
 
@@ -193,6 +187,18 @@ let boardAttrChang = () => {
     }
     checkWinCondition();
 };
+
+let setHeight = () => {
+    let w = Math.min(420, window.innerWidth - 100);
+    let h = Math.min(420, window.innerHeight - 100);
+    let min = Math.min(w, h);
+    canvas.width = min;
+    canvas.height = min;
+
+    WIDTH = min;
+    HEIGHT = min;
+}
+
 window.onload = () => {
     boardAttrChang();
     resetGame();

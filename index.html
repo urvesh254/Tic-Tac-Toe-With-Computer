@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tic Tac Toe | Urvesh Patel</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="shortcut icon"
+            href="assets/favicon.ico"
+            type="image/x-icon"
+        />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tic Tac Toe | Urvesh Patel</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
-    <script src="script.js"></script>
-    <script src="minimax.js"></script>
-</head>
-
-<body>
-    <a id="link" href="https://github.com/urvesh254/Tic-Tac-Toe-With-Computer" title="Source Code">
-        <img id="logo" src="assets/github.png" alt="GitHub Source Code" width="50px" /></a>
-    <div id="container">
-        <a href="https://urvesh254.github.io/Tic-Tac-Toe-With-Computer/" title="Source Code">
-            <img src="assets/tic-toa-toe.png" alt="Tic Tac Toe" width="150px" /></a>
-        <h1>Tic Tac Toe</h1>
-        <canvas style="border: 1px solid black" id="canvas"></canvas>
-        <div id="result"></div>
-        <button id="reset" onclick="resetGame()">Restart Game</button>
-    </div>
-</body>
-
+    <body>
+        <a
+            id="link"
+            href="https://github.com/urvesh254/Tic-Tac-Toe-With-Computer"
+            title="Source Code"
+        >
+            <img
+                id="logo"
+                src="assets/github.png"
+                alt="GitHub Source Code"
+                width="50px"
+        /></a>
+        <div id="container">
+            <a
+                href="https://urvesh254.github.io/Tic-Tac-Toe-With-Computer/"
+                title="Source Code"
+            >
+                <img
+                    src="assets/tic-toa-toe.png"
+                    alt="Tic Tac Toe"
+                    width="150px"
+            /></a>
+            <h1>Tic Tac Toe</h1>
+            <canvas
+                onload="setHeight()"
+                style="border: 1px solid black"
+                id="canvas"
+            ></canvas>
+            <div id="result"></div>
+            <button id="reset" onclick="resetGame()">Restart Game</button>
+        </div>
+        <script src="script.js"></script>
+        <script src="minimax.js"></script>
+    </body>
 </html>
