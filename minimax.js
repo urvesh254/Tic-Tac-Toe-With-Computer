@@ -35,9 +35,7 @@ let scores = {
 function minimax(board, depth, isMaximizing) {
     let result = checkWinCondition(false);
     if (result !== null) {
-        let r = { score: scores[result], depth };
-        // console.log(r);
-        return r;
+        return { score: scores[result], depth };
     }
 
     if (isMaximizing) {
