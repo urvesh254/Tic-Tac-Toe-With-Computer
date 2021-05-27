@@ -1,5 +1,5 @@
-let canvas = document.getElementById("canvas");
-let ctx = canvas.getContext("2d");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
 const BOARD_LENGTH = 3;
 let WIDTH = canvas.width;
@@ -14,12 +14,13 @@ let board = [
 ];
 let emptySpace;
 
-let resetGame = () => {
+const resetGame = () => {
     board = [
         ["", "", ""],
         ["", "", ""],
         ["", "", ""],
     ];
+    // board.forEach((value, index) => board[index] = "")
     emptySpace = 9;
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     exitMessage("");
@@ -47,7 +48,7 @@ class DrawText {
     }
 }
 
-let drawLine = (x1, y1, x2, y2, color = "black", lineWidth = 5) => {
+const drawLine = (x1, y1, x2, y2, color = "black", lineWidth = 5) => {
     ctx.beginPath();
     ctx.lineWidth = lineWidth;
     ctx.moveTo(x1, y1);
@@ -56,18 +57,18 @@ let drawLine = (x1, y1, x2, y2, color = "black", lineWidth = 5) => {
     ctx.stroke();
 };
 
-let drawBoard = () => {
+const drawBoard = () => {
     drawLine(WIDTH / 3, 0, WIDTH / 3, HEIGHT);
     drawLine((WIDTH / 3) * 2, 0, (WIDTH / 3) * 2, HEIGHT);
     drawLine(0, HEIGHT / 3, WIDTH, HEIGHT / 3);
     drawLine(0, (HEIGHT / 3) * 2, WIDTH, (HEIGHT / 3) * 2);
 };
 
-let equals3 = (a, b, c) => {
+const equals3 = (a, b, c) => {
     return a == b && b == c && a != "";
 };
 
-let checkWinCondition = (isDrawLine = true) => {
+const checkWinCondition = (isDrawLine = true) => {
     let winner = null;
 
     // horizontal
@@ -132,7 +133,7 @@ let checkWinCondition = (isDrawLine = true) => {
     }
 };
 
-let gameStatus = () => {
+const gameStatus = () => {
     let result = checkWinCondition();
     if (result == AI) {
         exitMessage("You Lost! 😢");
@@ -143,7 +144,7 @@ let gameStatus = () => {
     }
 };
 
-let exitMessage = (msg) => {
+const exitMessage = (msg) => {
     let div = document.getElementById("result");
     div.textContent = msg;
 };
@@ -175,7 +176,7 @@ canvas.addEventListener("click", () => {
     emptySpace--;
 });
 
-let boardAttrChang = () => {
+const boardAttrChang = () => {
     setHeight();
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     drawBoard();
@@ -188,7 +189,7 @@ let boardAttrChang = () => {
     checkWinCondition();
 };
 
-let setHeight = () => {
+const setHeight = () => {
     let w = Math.min(420, window.innerWidth - 100);
     let h = Math.min(420, window.innerHeight - 100);
     let min = Math.min(w, h);
