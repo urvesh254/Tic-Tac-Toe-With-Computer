@@ -1,4 +1,4 @@
-function computerTurn() {
+const computerTurn = () => {
     // AI to make its turn
     let bestScore = { score: -Infinity, depth: Infinity };
     let move = undefined;
@@ -26,13 +26,13 @@ function computerTurn() {
     }
 }
 
-let scores = {
+const scores = {
     X: 10,
     O: -10,
     Tie: 0,
 };
 
-function minimax(board, depth, isMaximizing) {
+const minimax = (board, depth, isMaximizing) => {
     let result = checkWinCondition(false);
     if (result !== null) {
         return { score: scores[result], depth };

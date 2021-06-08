@@ -7,7 +7,7 @@ let HEIGHT = canvas.height;
 const AI = "X";
 const HUMAN = "O";
 
-let board = [
+const board = [
     ["", "", ""],
     ["", "", ""],
     ["", "", ""],
@@ -15,12 +15,7 @@ let board = [
 let emptySpace;
 
 const resetGame = () => {
-    board = [
-        ["", "", ""],
-        ["", "", ""],
-        ["", "", ""],
-    ];
-    // board.forEach((value, index) => board[index] = "")
+    board.forEach((rowArr, row) => rowArr.forEach((value, col) => board[row][col] = ""))
     emptySpace = 9;
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     exitMessage("");
